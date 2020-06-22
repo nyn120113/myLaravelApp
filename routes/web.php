@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/post', 'PostController@index')->name('index');
+Route::get('/post/create', 'PostController@create')->name('create');
+Route::post('/post/store', 'PostController@store');
+Route::get('/post/{id}/show', 'PostController@show');
+Route::get('/post/{id}/edit', 'PostController@edit');
+Route::PUT('/post/{id}/update', 'PostController@update');
+Route::DELETE('/post/{id}/delete', 'PostController@destroy');
